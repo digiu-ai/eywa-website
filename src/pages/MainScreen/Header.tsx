@@ -20,7 +20,13 @@ const Root = styled.div`
 const Body = styled(Column)`
   width: 100%;
   align-items: center;
-  margin: 325px 0;
+  justify-content: center;
+  height: calc(100vh - 90px);
+  margin: 0;
+  @media (max-width: 1340px) {
+    height: auto;
+    margin: 325px 0;
+  }
 `;
 
 const Title = styled.h1`
