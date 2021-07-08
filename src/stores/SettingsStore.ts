@@ -26,4 +26,8 @@ export default class SettingsStore {
   toggleLanguage() {
     this.selectedLanguage = this.selectedLanguage === "en" ? "ru" : "en";
   }
+  @action
+  selectLanguage(lang: "ru" | "en") {
+    this.selectedLanguage = lang;
+  }
 }

@@ -4,6 +4,14 @@ import { Column } from "@components/flex";
 import Button from "@components/Button";
 import TopMenu from "@components/TopMenu";
 import Advantages from "@components/Advantages";
+import { useLanguage } from "@src/hooks/useLang";
+import {
+  DEFAULT_BUTTON,
+  PRIMARY_BUTTON,
+  SUBTITLE,
+  SUBTITLE_WITH,
+  TITLE,
+} from "@src/langConstants";
 interface IProps {}
 
 const Root = styled.div`
@@ -62,18 +70,19 @@ const ButtonsWrapper = styled.div`
 `;
 
 const Header: React.FC<IProps> = () => {
+  const lang = useLanguage();
   return (
     <Root>
       <TopMenu />
       <Body>
-        <Title>Cross-chain Liquidity Freedom</Title>
+        <Title>{TITLE[lang]}</Title>
         <Subtitle>
-          with&nbsp;
-          <span className="green">EYWA Multichain DEX and Bridge Protocol</span>
+          {SUBTITLE_WITH[lang]}&nbsp;
+          <span className="green">{SUBTITLE[lang]}</span>
         </Subtitle>
         <ButtonsWrapper>
-          <Button primary>LAUNCH APP</Button>
-          <Button>DOCS</Button>
+          <Button primary>{PRIMARY_BUTTON[lang]}</Button>
+          <Button>{DEFAULT_BUTTON[lang]}</Button>
         </ButtonsWrapper>
       </Body>
       <Advantages

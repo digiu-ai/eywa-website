@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import React from "react";
 import { Column, Row } from "@components/flex";
 import SocialIcons from "@components/SocialIcons";
+import { useStores } from "@stores";
+import { Observer } from "mobx-react-lite";
 
 interface IProps {}
 
@@ -53,6 +55,7 @@ const ExtendedColumn = styled(Column)`
 `;
 
 const Footer: React.FC<IProps> = () => {
+  const { settingsStore } = useStores();
   return (
     <Root>
       <Row>
@@ -87,10 +90,21 @@ const Footer: React.FC<IProps> = () => {
         </ExtendedColumn>
         <ExtendedColumn>
           <SocialIcons />
-          <Row justifyContent="flex-end">
-            <Title style={{ paddingRight: 10 }}>RU</Title>
-            <Title>ENG</Title>
-          </Row>
+          <Observer>
+            {() => (
+              <Row justifyContent="flex-end">
+                <Title
+                  style={{ paddingRight: 10 }}
+                  onClick={() => settingsStore.selectLanguage("ru")}
+                >
+                  RU
+                </Title>
+                <Title onClick={() => settingsStore.selectLanguage("en")}>
+                  ENG
+                </Title>
+              </Row>
+            )}
+          </Observer>
         </ExtendedColumn>
       </Row>
     </Root>
