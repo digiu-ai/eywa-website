@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meta_tags",
+  "info": {
+    "name": "Meta Tags"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "meta": {
+      "type": "text"
+    }
+  }
+}

@@ -28,6 +28,5 @@ yarn-error.log*
 !.yarn/plugins
 .pnp.*
 
-.DS_Store
-.idea
+../.idea
 calculator-common

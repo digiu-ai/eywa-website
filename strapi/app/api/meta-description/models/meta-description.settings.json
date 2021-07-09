@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "meta_descriptions",
+  "info": {
+    "name": "Meta Description"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}

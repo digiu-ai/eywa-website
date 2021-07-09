@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "texts",
+  "info": {
+    "name": "Texts"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "locale": {
+      "type": "string"
+    },
+    "itemId": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    }
+  }
+}

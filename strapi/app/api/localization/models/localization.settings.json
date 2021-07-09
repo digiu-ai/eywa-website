@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "localizations",
+  "info": {
+    "name": "Localization",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identifer": {
+      "type": "string"
+    },
+    "lang": {
+      "type": "enumeration",
+      "enum": [
+        "ru",
+        "en"
+      ]
+    },
+    "ru": {
+      "type": "text"
+    },
+    "en": {
+      "type": "string"
+    }
+  }
+}
