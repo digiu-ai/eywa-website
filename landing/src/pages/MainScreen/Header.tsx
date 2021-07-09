@@ -70,19 +70,18 @@ const ButtonsWrapper = styled.div`
 `;
 
 const Header: React.FC<IProps> = () => {
-  const lang = useLanguage();
   return (
     <Root>
       <TopMenu />
       <Body>
-        <Title>{TITLE[lang]}</Title>
+        <Title>{useLanguage("title")}</Title>
         <Subtitle>
-          {SUBTITLE_WITH[lang]}&nbsp;
-          <span className="green">{SUBTITLE[lang]}</span>
+          with
+          <span className="green">EYWA Multichain DEX and Bridge Protocol</span>
         </Subtitle>
         <ButtonsWrapper>
-          <Button primary>{PRIMARY_BUTTON[lang]}</Button>
-          <Button>{DEFAULT_BUTTON[lang]}</Button>
+          <Button primary>LAUNCH APP</Button>
+          <Button>DOCS</Button>
         </ButtonsWrapper>
       </Body>
       <Advantages

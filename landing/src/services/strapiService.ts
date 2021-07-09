@@ -1,18 +1,21 @@
 import axios from "axios";
 import { loadEnvVar } from "@src/utils";
 
-export interface Localization {
-  itemId: string
-  text: string
-  locale: string
+export interface IRawLocalization {
+  identifer: string
+  ru: string
+  en: string
 }
 
-// const localizationsArrayToObject = (data: Localization[]) => data.reduce((acc, e) => ({ [`${e.itemId}`]: { ...e }, ...acc }), {})
+export type TLocalization = Record<string, { en: string, ru: string }>
+
+const localizationsArrayToObject = (data: IRawLocalization[]) => data.reduce((acc, { identifer, ru, en }) =>
+  ({ [`${identifer}`]: { ru, en }, ...acc }), {} as TLocalization);
 
 export default {
-  async localizations(): Promise<Record<string, { en: string, ru: string }>> {
+  async localizations(): Promise<TLocalization> {
     const { data } = await axios.get(`${loadEnvVar("STRAPI_URL")}/localizations`);
-    return data
+    return localizationsArrayToObject(data);
     // return localizationsArrayToObject(data);
   }
 };

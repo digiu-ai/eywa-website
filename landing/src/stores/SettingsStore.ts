@@ -1,16 +1,14 @@
 import { RootStore } from "@stores";
 import { action, computed, observable } from "mobx";
+import { TLocalization } from "@services/strapiService";
 
 export default class SettingsStore {
   public rootStore: RootStore;
-  localizations: any;
+  localizations: TLocalization;
 
-  constructor(rootStore: RootStore, initState: { localizations?: any }) {
+  constructor(rootStore: RootStore, initState: { localizations: TLocalization }) {
     this.rootStore = rootStore;
-    console.log(initState);
-    if (initState && initState.localizations) {
-      this.localizations = initState.localizations;
-    }
+    this.localizations = initState.localizations;
     if (this.rootStore.routerStore.searchParams.get("lang") === "ru") {
       this.selectedLanguage = "ru";
     }

@@ -25,8 +25,8 @@ services:
 #    volumes:
 #      - ./strapi/data:/var/lib/postgresql/data
 
-#  landing:
-#    build: ./landing
-#    ports:
-#      - "3000:3000"
-#    container_name: eywa-landing
+  landing:
+    build: ./landing
+    ports:
+      - "3000:3000"
+    container_name: eywa-landing
