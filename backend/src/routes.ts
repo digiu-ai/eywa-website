@@ -1,15 +1,15 @@
 import { Router } from "express";
-import * as itemController from "./controllers/itemController";
+import * as itemController from "./controllers/langController";
 
 const router = Router();
 
-router.get("/", (req, res) => res.send("Hello World"));
+router.get("/", (req, res) => res.send("Backend is alive"));
 
-// Item routes
-router.get("/items/", itemController.getAllItems);
-router.get("/items/:id", itemController.getItemById);
-router.post("/items/", itemController.createItem);
-router.put("/items/:id", itemController.updateItem);
-router.delete("/items/:id", itemController.deleteItem);
+// Lang routes
+router.get("/langs/", itemController.getAllLangs);
+router.get("/langs/:id", itemController.getLangById);
+router.post("/langs/", itemController.createLang);
+router.put("/langs/:id", itemController.updateLang);
+router.delete("/langs/:id", itemController.deleteLang);
 
 export { router };

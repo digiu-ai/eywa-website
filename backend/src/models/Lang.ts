@@ -1,22 +1,15 @@
 import mongoose, { Document } from "mongoose";
 
-export interface ILocalisation {
-  name: string;
-  description?: string;
-  isFragile: boolean;
-  price: number;
+export interface ILang {
+  language: "en" | "ru" | string;
+  langMap: string[];
 }
 
-export type LocalizationDocument = Document & ILocalisation;
+export type LangDocument = Document & ILang;
 
-const LocalizationSchema = new mongoose.Schema({
+const LangSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  description: { type: String, required: false },
-  isFragile: { type: Boolean, required: true, default: false },
-  price: { type: Number, required: true },
+  description: { type: [String], required: true },
 });
 
-export const Localization = mongoose.model<LocalizationDocument>(
-  "Localization",
-  LocalizationSchema
-);
+export const Lang = mongoose.model<LangDocument>("Lang", LangSchema);
